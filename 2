@@ -1,0 +1,31 @@
+function createHabit(habitName) {
+    let streak = 0;
+    let maxStreak = 0;
+    let name = habitName;
+    return {
+        completeDay: () => {
+            streak = streak + 1;
+            if(streak > maxStreak) {
+                maxStreak = streak;
+            }
+            console.log(`Успех! Питомец:${name}. Серия повышена на 1 единицу.`);
+                console.log(`Текущая серия: ${streak}. Максимальная серия: ${maxStreak}`);
+        },
+        missDay: () => {
+            streak = 0;
+            console.log(`Упс... Серия завершена, Питомец умер!`);
+            console.log(`Текущая серия: ${streak}. Максимальная серия: ${maxStreak}`);
+        },
+        getStats: () => {
+            console.log(`Питомец: ${name}. Текущая серия: ${streak}. Максимальная серия: ${maxStreak}`);
+        }
+    }
+}
+
+const ser = createHabit("Серийчик");
+ser.completeDay();
+ser.completeDay();
+ser.completeDay();
+ser.missDay();
+ser.completeDay();
+ser.getStats();
