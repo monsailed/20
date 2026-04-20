@@ -1,0 +1,33 @@
+function createMonster(monsterName) {
+    let stage = 1;
+    let candies = 0;
+    return {
+        play() {
+            console.log(`${monsterName} радостно прыгает!`)
+        },
+        feedCandy() {
+            candies = candies + 1;
+            console.log(`${monsterName} съел конфетку!`)
+            if(candies == 3) {
+                candies = 0;
+                stage++;
+                console.log(`${monsterName} эволюционировал!`);
+                console.log(`${monsterName} стадия: ${stage}`);
+            }
+            3 - candies == 1 ? console.log(`До следующей стадии осталась ${3 - candies} конфетка`) : console.log(`До следующей стадии осталось ${3 - candies} конфетки`);
+        },
+        getStats() {
+            console.log(`Стадия: ${stage}`);
+            console.log(`До следующей эволюции: ${candies}/3 конфет!`);
+        }
+    }
+    }
+    const myDragon = createMonster("Дракон");
+    myDragon.getStats();
+    myDragon.feedCandy();
+    myDragon.feedCandy();
+    myDragon.play();
+    myDragon.feedCandy();
+    myDragon.feedCandy();
+    myDragon.getStats();
+    myDragon.feedCandy();
